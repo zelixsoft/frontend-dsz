@@ -43,7 +43,7 @@ function Login() {
         var config = {
             method: 'post',
             url: `${process.env.REACT_APP_HOST}/api/auth`,
-            // withCredentials: true,
+            withCredentials: true,
             headers: {
                 'Content-Type': 'application/json',
             },
