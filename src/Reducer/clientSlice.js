@@ -78,6 +78,7 @@ export function fechBlockClients() {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+				withCredentials: true,
 			};
 
 			// console.log(config.url);
