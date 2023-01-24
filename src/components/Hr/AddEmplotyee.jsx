@@ -15,6 +15,9 @@ function AddEmplotyee() {
     const [BankDetails, setBankDetails] = useState(false);
     const Auth = useSelector((state) => state.user.auth);
 
+    const [IsAdmin, setIsAdmin] = useState(false);
+    const [IsHr, setIsHr] = useState(false);
+
 
     const errorMessages = {
         "Validation Error": {
@@ -39,8 +42,8 @@ function AddEmplotyee() {
         "employee_address": "",
         "employee_relieve_date": date,
         "employee_department": "Employee",
-        "employee_isAdmin": true,
-        "employee_isHR": false
+        "employee_isAdmin": IsAdmin,
+        "employee_isHR": IsHr,
     })
 
 
@@ -183,9 +186,29 @@ function AddEmplotyee() {
             });
     }
 
+    const HandelOnCheck = (e) => {
+        var field = e.target.name;
+
+        console.log(field);
+
+        var preData = { ...Data };
+        if (field === "employee_isAdmin") {
+            preData[field] = !IsAdmin;
+            setIsAdmin(!IsAdmin);
+
+        } else {
+            preData[field] = !IsHr;
+            setIsHr(!IsHr);
+        }
+        setData(preData);
+
+    }
+
+    // console.log(Data);
+
 
     const handelSubmitAddBankInfo = () => {
-        console.log(BankData);
+        // console.log(BankData);
 
         var data = JSON.stringify({
             "data": BankData
@@ -332,17 +355,6 @@ function AddEmplotyee() {
 
                         <div className='flex flex-col'>
                             <label className='label'>Designation</label>
-                            {/* <select id="designation" name="employee_designation" className='NewEmployeeinput  w-[300px]' onChange={(e) => { HandelEmployeeDetailInput(e) }} value={Data.employee_designation}>
-                                <option value="Managing Director">Managing Director</option>
-                                <option value="Sales Manager">Sales Manager</option>
-                                <option value="Sales Executive">Sales Executive</option>
-                                <option value="Account Executive">Account Executive</option>
-                                <option value="Sales Field">Sales Field</option>
-                                <option value="human Resourse">Hr</option>
-                                <option value="Hr-Admin">Hr-Admin</option>
-                                <option value="Back offices">Back office </option>
-                                <option value="Sales/Field Executive">Sales/Field Executive</option>
-                            </select> */}
                             <input className='NewEmployeeinput' type="text" name="employee_designation" onChange={(e) => { HandelEmployeeDetailInput(e) }} value={Data.employee_designation} />
                         </div>
 
@@ -357,6 +369,29 @@ function AddEmplotyee() {
                         </div>
 
                     </div>
+
+
+                    {
+                        Auth === "Admin" ?
+
+                            <div className='flex flex-col md:flex-row md:justify-start pt-5 md:pb-2'>
+
+                                <div className='flex items-center'>
+                                    <input className='ml-2' type="checkbox" value={Data.employee_isAdmin} name="employee_isAdmin" defaultChecked={false} onChange={(e) => { HandelOnCheck(e) }} />
+                                    <label className='label py-0'>Is Admin</label>
+                                </div>
+
+                                <div className='flex items-center md:ml-20 mt-3 md:mt-0'>
+                                    <input type="checkbox" value={Data.employee_isHR} name="employee_isHR" defaultChecked={false} onChange={(e) => { HandelOnCheck(e) }} className="ml-2" />
+                                    <label className='label py-0'>Is Hr</label>
+                                </div>
+
+                            </div> : <div className='flex items-center py-3 '>
+                                <input type="checkbox" value={Data.employee_isHR} name="employee_isHR" defaultChecked={false} onChange={(e) => { HandelOnCheck(e) }} className="ml-2" />
+                                <label className='label py-0'>Is Hr</label>
+                            </div>
+
+                    }
 
                     <div className='flex flex-col md:flex-row md:justify-between md:py-3'>
 
