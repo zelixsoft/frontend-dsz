@@ -5,7 +5,7 @@ import {
   Square2StackIcon,
   TrashIcon,
 } from "@heroicons/react/24/outline";
-import { productDetails } from "../../Data/Data";
+// import { productDetails } from "../../Data/Data";
 import { fetchQuotations, setUnassignQuery } from "../../Reducer/querySclice";
 import { Store } from "react-notifications-component";
 import "react-notifications-component/dist/theme.css";
@@ -324,35 +324,35 @@ function GenerateInvoice() {
     let preProduct = [...ProductList];
     preProduct[i]["product"] = val;
     preProduct[i]["details"] = {
-      ...productDetails[0][element.name].products[val].data,
+      ...productDetails[element.name].products[val].data,
     };
-    preProduct[i]["width"] = productDetails[0][element.name].products[val].Width
-      ? productDetails[0][element.name].products[val].Width.split(" ")[0]
+    preProduct[i]["width"] = productDetails[element.name].products[val].Width
+      ? productDetails[element.name].products[val].Width.split(" ")[0]
       : "NA";
-    preProduct[i]["length"] = productDetails[0][element.name].products[val]
+    preProduct[i]["length"] = productDetails[element.name].products[val]
       .Length
-      ? productDetails[0][element.name].products[val].Length.split(" ")[0]
+      ? productDetails[element.name].products[val].Length.split(" ")[0]
       : "NA";
 
     preProduct[i]["wxlunit"] =
       preProduct[i]["width"] !== "NA"
-        ? productDetails[0][element.name].products[val].Width.split(" ")[1]
+        ? productDetails[element.name].products[val].Width.split(" ")[1]
         : preProduct[i]["length"] !== "NA"
-          ? productDetails[0][element.name].products[val].Length.split(" ")[1]
+          ? productDetails[element.name].products[val].Length.split(" ")[1]
           : "NA";
 
     preProduct[i]["min"] =
-      productDetails[0][element.name].products[val]["Min Rate"];
+      productDetails[element.name].products[val]["Min Rate"];
     preProduct[i]["rate"] =
-      productDetails[0][element.name].products[val]["Standard Rate"];
+      productDetails[element.name].products[val]["Standard Rate"];
     preProduct[i]["unit"] =
-      productDetails[0][element.name].products[val]["Selling Unit"];
+      productDetails[element.name].products[val]["Selling Unit"];
     preProduct[i]["HSNCode"] =
-      productDetails[0][element.name].products[val]["HSN Code"];
+      productDetails[element.name].products[val]["HSN Code"];
     preProduct[i]["ModleNo"] =
-      productDetails[0][element.name].products[val]["ModleNo"];
+      productDetails[element.name].products[val]["ModleNo"];
     preProduct[i]["detailsTobeShown"] = {
-      ...productDetails[0][element.name].products[val].data,
+      ...productDetails[element.name].products[val].data,
     };
 
     if (preProduct[i]["width"] === "NA" && preProduct[i]["length"] === "NA") {
@@ -383,7 +383,7 @@ function GenerateInvoice() {
 
     SetProduct(preProduct);
     // console.log(element.name);
-    // console.log(productDetails[0][element.name].products[val]);
+    // console.log(productDetails[element.name].products[val]);
     // console.log(ProductList)
   };
 
@@ -867,7 +867,7 @@ function GenerateInvoice() {
                           Choose here
                         </option>
 
-                        {Object.keys(productDetails[0]).map((product, id) => {
+                        {Object.keys(productDetails).map((product, id) => {
                           return (
                             <option value={product} id={id}>
                               {product}
@@ -896,7 +896,7 @@ function GenerateInvoice() {
 
                         {element.name
                           ? Object.keys(
-                            productDetails[0][element.name].products
+                            productDetails[element.name].products
                           ).map((product, id) => {
                             return (
                               <option value={product} id={id}>
