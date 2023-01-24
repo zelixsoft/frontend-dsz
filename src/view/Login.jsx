@@ -59,7 +59,14 @@ function Login() {
       setStatus("Please Enter Valid Password");
     } else {
 
-      fetch(`${process.env.REACT_APP_HOST}/api/auth`, config)
+      fetch(`${process.env.REACT_APP_HOST}/api/auth`, {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: data
+      })
         .then(res => {
           console.log(res.headers)
           return res;
