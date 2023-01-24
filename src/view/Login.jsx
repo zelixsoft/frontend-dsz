@@ -45,7 +45,7 @@ function Login() {
       // withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
-      },
+      }, withCredentials: true,
       credentials: 'include',
       body: data
     };
@@ -63,7 +63,7 @@ function Login() {
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
-        },
+        }, withCredentials: true,
         credentials: 'include',
         body: data
       })
@@ -72,7 +72,7 @@ function Login() {
           return res;
         })
         .then(res => res.json())
-        .then(function(response) {
+        .then(function (response) {
           // console.log(JSON.stringify(response.data));
           // console.log(response.headers)
 
@@ -106,7 +106,7 @@ function Login() {
             }
           }
         })
-        .catch(function(error) {
+        .catch(function (error) {
           // console.log(error.response.data);
 
           var result = error.response.data;
