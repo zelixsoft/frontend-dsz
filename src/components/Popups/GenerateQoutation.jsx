@@ -495,7 +495,7 @@ function GenerateQoutation({ visible, close }) {
 
             // console.log(Loading);
 
-            await fetch('http://localhost:8000/download', requestOptions)
+            await fetch('https://api.darshansafety.in/generate/download', requestOptions)
                 .then(response => response.text())
                 .then(text => {
                     setLink(text);
