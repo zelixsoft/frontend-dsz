@@ -50,6 +50,7 @@ export function fechEmployees() {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+				withCredentials: true,
 			};
 
 			// console.log(config.url);
@@ -130,6 +131,7 @@ export function fechAttendance({ mm, yyyy, EmployeeId }) {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+				withCredentials: true,
 			};
 
 			// console.log(config.url);

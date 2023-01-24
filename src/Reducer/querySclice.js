@@ -101,6 +101,8 @@ export function fechAssignQuery(EmployeeId) {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+
+				withCredentials: true,
 			};
 
 			axios(config)
@@ -138,6 +140,8 @@ export function fechLostQuery(EmployeeId) {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+
+				withCredentials: true,
 			};
 
 			axios(config)
@@ -175,6 +179,8 @@ export function fechCloseQuery(EmployeeId) {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+
+				withCredentials: true,
 			};
 
 			axios(config)
@@ -212,6 +218,8 @@ export function fetchQuotations(AQID) {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+
+				withCredentials: true,
 			};
 
 			axios(config)
