@@ -491,7 +491,7 @@ function GenerateInvoice() {
 
             // console.log(Loading);
 
-            await fetch("http://localhost:8000/createInvoice", requestOptions)
+            await fetch("https://api.darshansafety.in/generate/createInvoice", requestOptions)
                 .then((response) => response.text())
                 .then((text) => {
                     setLink(text);
