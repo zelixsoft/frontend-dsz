@@ -162,7 +162,7 @@ function AttendanceSidebar() {
 
           {
 
-            AttendanceData.map((data, i) => {
+            AttendanceData && AttendanceData.map((data, i) => {
 
               let div;
 
