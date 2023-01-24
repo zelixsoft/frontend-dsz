@@ -47,7 +47,7 @@ function Login() {
         'Content-Type': 'application/json',
       },
       credentials: 'include',
-      data: data
+      body: data
     };
 
     setloading(true);
