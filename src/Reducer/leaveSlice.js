@@ -65,6 +65,8 @@ export function fetchArchiveLeaveReq() {
 					"Content-Type": "application/json",
 				},
 				credentials: "include",
+
+				withCredentials: true,
 			};
 
 			// console.log(config.url);
