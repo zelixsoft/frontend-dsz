@@ -455,9 +455,9 @@ function GenerateQoutation({ visible, close }) {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: {
+      body: JSON.stringify({
         data: { query_id: QueryId, quotation_data: pevData }
-      }
+      })
     };
 
 

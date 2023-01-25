@@ -456,7 +456,7 @@ function GenerateInvoice() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: { data: { client_id: Client.client_id, invoice_data: pevData } },
+      body: JSON.stringify({ data: { client_id: Client.client_id, invoice_data: pevData } }),
     };
 
     var error = "";
