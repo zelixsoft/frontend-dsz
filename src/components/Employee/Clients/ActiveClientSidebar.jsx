@@ -35,7 +35,7 @@ function ActiveClientSidebar() {
 
     var config = {
       method: 'get',
-      url: `${process.env.REACT_APP_HOST}/api/invoice/${ClientId}`,
+      url: `${process.env.REACT_APP_HOST}/api/invoice/all/${ClientId}`,
       headers: {
         'Content-Type': 'application/json',
       },
@@ -52,7 +52,7 @@ function ActiveClientSidebar() {
           // console.log(resData.error);
           setinvoice([]);
         } else {
-          setinvoice(resData.data.invoice_data);
+          setinvoice(resData.data);
           // console.log(resData.data)
         }
 
