@@ -11,15 +11,15 @@ function ViewQuotation({ visible, file, close, data }) {
     }
 
     useEffect(() => {
-        setURL(`http://localhost:8000/docs/${file}.pdf`);
+        setURL(`https://api.darshansafety.in/generate/docs/quotations/${file}.pdf`);
     }, [file])
 
 
     const [Loading, setLoading] = useState(false)
-    const [URL, setURL] = useState(`http://localhost:8000/docs/${file}.pdf`)
+    const [URL, setURL] = useState(`https://api.darshansafety.in/generate/docs/quotations/${file}.pdf`)
     const [Error, setError] = useState("");
 
-    console.log(URL);
+    // console.log(URL);
 
     const handelGenerate = async () => {
 
@@ -31,7 +31,7 @@ function ViewQuotation({ visible, file, close, data }) {
             pevData["quotation"] = "old";
 
 
-            console.log(pevData);
+            // console.log(pevData);
 
             const requestOptions = {
                 method: 'POST',

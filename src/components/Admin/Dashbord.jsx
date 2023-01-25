@@ -188,7 +188,7 @@ function Dashbord() {
                 return (
                   <div className='w-[150px] h-[100px] shadow-md rounded-md flex flex-col justify-center items-center mx-2 my-4 flex-nowrap bg-[#ffffff]' key={id}>
                     <p className='text-indigo-400 text-4xl'>{obj.count}</p>
-                    <h1 className='text-lg text-indigo-500'>{obj.client_blocked === 1 ? "Active Clients" : "Blocked Clients"}</h1>
+                    <h1 className='text-lg text-indigo-500'>{obj.client_blocked === 0 ? "Active Clients" : "Blocked Clients"}</h1>
                   </div>
                 )
               })

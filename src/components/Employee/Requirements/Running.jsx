@@ -91,9 +91,9 @@ function Running({ SearchInput, SortType, EmployeeId }) {
 
 
 
-    if (AQuery[0]) {
-        dispatch(setAQID(AQuery[0].query_id))
-    }
+    // if (AQuery[0]) {
+    //     dispatch(setAQID(AQuery[0].query_id))
+    // }
 
     // console.log(AQuery);
 
