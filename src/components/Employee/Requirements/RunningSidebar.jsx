@@ -414,7 +414,7 @@ function RunningSidebar({ EmployeeId }) {
       <div className='max-h-[350px] overflow-y-scroll'>
 
         {
-          followups.length === 0 ? <div className='flex justify-center items-center text-blue-500 h-[100px]'>No Followups...</div> :
+          !followups || followups.length === 0 ? <div className='flex justify-center items-center text-blue-500 h-[100px]'>No Followups...</div> :
 
             (followups.map((fup, id) => {
               return (
@@ -430,7 +430,7 @@ function RunningSidebar({ EmployeeId }) {
       <div className='max-h-[350px] overflow-y-scroll'>
 
         {
-          Quotation.length === 0 ? <div className='flex justify-center items-center text-blue-500 h-[100px]'>No Quotation...</div> :
+          !Quotation || Quotation.length === 0 ? <div className='flex justify-center items-center text-blue-500 h-[100px]'>No Quotation...</div> :
 
             (Quotation.map((q, id) => {
               return (
