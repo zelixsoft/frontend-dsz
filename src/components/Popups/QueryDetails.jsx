@@ -3,7 +3,6 @@ import { XCircleIcon } from '@heroicons/react/24/outline'
 import ViewQuotation from './ViewQuotation';
 import Followup from '../Employee/Requirements/Followup';
 import axios from 'axios'
-import ReqDetails from '../Employee/Requirements/ReqDetails';
 
 function QueryDetails({ visible, close, QueryId, Query, Client }) {
 
@@ -28,21 +27,33 @@ function QueryDetails({ visible, close, QueryId, Query, Client }) {
       credentials: 'include',
     };
 
-    axios(config)
-      .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        const resData = response.data;
+    if (QueryId) {
 
-        if (resData.error) {
-          // console.log(resData.error);
-        } else {
-          setfollowups(resData.data);
-          // console.log(resData)
-        }
-      })
-      .catch(function (error) {
-        // console.log(error);
-      });
+
+      axios(config)
+        .then(function (response) {
+          // console.log(JSON.stringify(response.data));
+          const resData = response.data;
+
+          if (resData.error) {
+            // console.log(resData.error);
+            setfollowups([]);
+
+          } else {
+            setfollowups(resData.data);
+            // console.log(resData)
+          }
+        })
+        .catch(function (error) {
+          // console.log(error);
+          setfollowups([]);
+
+        });
+
+    } else {
+      setfollowups([]);
+    }
+
 
   }, [QueryId]);
 
@@ -59,22 +70,27 @@ function QueryDetails({ visible, close, QueryId, Query, Client }) {
       credentials: 'include',
     };
 
-    axios(config)
-      .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        const resData = response.data;
+    if (QueryId) {
+      axios(config)
+        .then(function (response) {
+          // console.log(JSON.stringify(response.data));
+          const resData = response.data;
 
-        if (resData.error) {
-          // console.log(resData.error);
-          setQuotation([])
-        } else {
-          setQuotation(resData.data)
-        }
-      })
-      .catch(function (error) {
-        // console.log(error);
-        setQuotation([])
-      });
+          if (resData.error) {
+            // console.log(resData.error);
+            setQuotation([]);
+          } else {
+            setQuotation(resData.data)
+          }
+        })
+        .catch(function (error) {
+          // console.log(error);
+          setQuotation([]);
+        });
+    } else {
+      setQuotation([]);
+    }
+
 
   }, [QueryId])
 

@@ -1,10 +1,8 @@
 import { useEffect } from 'react'
-import ClientRequest from '../ClientRequest';
 import { fechAssignQuery, setMDSidebar } from '../../../Reducer/querySclice';
 import { setAQID } from '../../../Reducer/querySclice';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { setSortFilterType } from '../../../Reducer/filtersSlice';
 
 
 function Running({ SearchInput, SortType, EmployeeId }) {
@@ -13,7 +11,7 @@ function Running({ SearchInput, SortType, EmployeeId }) {
 
     useEffect(() => {
         dispatch(fechAssignQuery(EmployeeId));
-        console.log(EmployeeId);
+        // console.log(EmployeeId);
     }, [])
 
 
