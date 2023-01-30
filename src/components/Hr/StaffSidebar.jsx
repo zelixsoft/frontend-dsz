@@ -279,7 +279,7 @@ function StaffSidebar() {
 
       </div>
 
-      <div className='my-6 mx-auto text-[14px]'>
+      <div className='my-6 mx-auto w-full text-[14px]'>
 
         <button className='px-4 py-2 w-[95%] mx-auto bg-primary text-white font-medium rounded-md shadow-md' onClick={() => { SetEditStaffDetails(true) }} >Edit</button>
 

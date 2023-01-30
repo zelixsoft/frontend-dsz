@@ -306,7 +306,7 @@ function EditEmployeeDetails({ visible, close, Employee, Employee_Bank_info }) {
           </div>
         </div>
 
-        <div className='px-28 pb-20 w-[950px]'>
+        <div className='w-[96%] px-2 md:px-28 pb-20 md:w-[950px]'>
 
 
           <div className='flex flex-col'>
