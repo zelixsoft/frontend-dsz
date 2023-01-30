@@ -178,7 +178,7 @@ function Products() {
 
       <div className="ml-7 mt-5 pb-2">
         <div className="flex justify-start w-full">
-          <input type="text" className="ml-4 bg-bg outline-none pl-3 border-b-2 border-primary grow" value={InputVal} onChange={(e) => { HandelInputChange(e) }} placeholder="Search..."></input>
+          <input type="text" className="ml-4 bg-bg outline-none pl-3 border-b-2 border-primary md:grow" value={InputVal} onChange={(e) => { HandelInputChange(e) }} placeholder="Search..."></input>
           <div>
             <span className='w-9 flex justify-center items-center ml-2 rounded-md bg-blue-300 hover:cursor-pointer' onClick={() => { InputVal.length > 0 && HandelSearchIconClick() }} >
               <svg width="18" height="40" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

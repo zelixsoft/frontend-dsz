@@ -11,11 +11,13 @@ function NewRequrement({ SearchInput, SortType, EmployeeId }) {
 
     useEffect(() => {
 
-        setInterval(() => {
-            dispatch(fechUnAssignQuery());
-        }, 60000);
+        dispatch(fechUnAssignQuery());
 
     }, [])
+
+    setInterval(() => {
+        dispatch(fechUnAssignQuery());
+    }, 60000);
 
 
 

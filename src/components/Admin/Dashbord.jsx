@@ -61,7 +61,7 @@ function Dashbord() {
       "end_time": hours + ":" + minutes + ":00"
     })
 
-    console.log(Dates);
+    // console.log(Dates);
   }
 
 
