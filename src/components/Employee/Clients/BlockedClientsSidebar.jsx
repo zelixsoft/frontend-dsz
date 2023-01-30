@@ -112,7 +112,7 @@ function BlockedClientsSidebar() {
 
 
   return (
-    <div className='mx-6 mt-10 felx flex-col text-black'>
+    <div className='mx-6 mt-10 flex flex-col text-black'>
 
       <div>
         <span className='flex items-center'>

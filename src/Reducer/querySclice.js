@@ -200,10 +200,10 @@ export function fechCloseQuery(EmployeeId) {
 					}
 				})
 				.catch(function (error) {
-					console.log(error);
+					// console.log(error);
 				});
 		} catch (error) {
-			console.log(error);
+			// console.log(error);
 		}
 	};
 }
@@ -222,22 +222,29 @@ export function fetchQuotations(AQID) {
 				withCredentials: true,
 			};
 
-			axios(config)
-				.then(function (response) {
-					// console.log(JSON.stringify(response.data));
-					const resData = response.data;
+			if (AQID) {
 
-					if (resData.error) {
-						// console.log(resData.error);
+				axios(config)
+					.then(function (response) {
+						// console.log(JSON.stringify(response.data));
+						const resData = response.data;
+
+						if (resData.error) {
+							// console.log(resData.error);
+							dispatch(setQuotations([]));
+						} else {
+							dispatch(setQuotations(resData.data));
+						}
+					})
+					.catch(function (error) {
+						// console.log(error);
 						dispatch(setQuotations([]));
-					} else {
-						dispatch(setQuotations(resData.data));
-					}
-				})
-				.catch(function (error) {
-					console.log(error);
-					dispatch(setQuotations([]));
-				});
+					});
+
+			} else {
+				dispatch(setQuotations([]));
+			}
+
 		} catch (error) {
 			console.log(error);
 		}

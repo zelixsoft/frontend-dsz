@@ -50,10 +50,10 @@ function GenerateQoutation({ visible, close }) {
   const [IsClientLoaded, SetIsClientLoaded] = useState(false);
 
 
-  console.log(parseInt(mm) > 3);
+  // console.log(parseInt(mm) > 3);
 
   const FY = parseInt(mm) > 3 ? `${yyyy}-${yyyy + 1}` : `${yyyy - 1}-${yyyy}`;
-  console.log(FY);
+  // console.log(FY);
 
 
   const [metadata, setmetadata] = useState({
@@ -137,7 +137,7 @@ function GenerateQoutation({ visible, close }) {
         "email": ClientMeta.client_email,
       }
       SetData(preData);
-      console.log(ClientMeta)
+      // console.log(ClientMeta)
     }
   }, [ClientMeta, IsClientLoaded])
 
@@ -167,7 +167,7 @@ function GenerateQoutation({ visible, close }) {
     Premetadata[field] = val;
     setmetadata(Premetadata);
 
-    console.log(metadata)
+    // console.log(metadata)
 
   }
 
@@ -266,7 +266,7 @@ function GenerateQoutation({ visible, close }) {
     var val = e.target.value;
 
     let preProduct = [...ProductList];
-    console.log(preProduct[i]["detailsTobeShown"][field]);
+    // console.log(preProduct[i]["detailsTobeShown"][field]);
 
     if (preProduct[i]["detailsTobeShown"][field]) {
       delete preProduct[i]["detailsTobeShown"][field];
@@ -276,7 +276,7 @@ function GenerateQoutation({ visible, close }) {
     SetProduct(preProduct);
 
 
-    console.log(ProductList);
+    // console.log(ProductList);
 
   }
 
@@ -291,7 +291,7 @@ function GenerateQoutation({ visible, close }) {
     SetProduct(preProduct);
     // console.log(e.target.value)
 
-    console.log(ProductList[i]["detailsTobeShown"]);
+    // console.log(ProductList[i]["detailsTobeShown"]);
   }
 
 
@@ -305,7 +305,7 @@ function GenerateQoutation({ visible, close }) {
     preProduct[i][field] = val;
     SetProduct(preProduct);
 
-    console.log(ProductList)
+    // console.log(ProductList)
 
   }
 
@@ -386,7 +386,7 @@ function GenerateQoutation({ visible, close }) {
     var val = e.target.value;
 
     let preProduct = [...RProductList];
-    console.log(preProduct[i]["detailsTobeShown"][field]);
+    // console.log(preProduct[i]["detailsTobeShown"][field]);
 
     if (preProduct[i]["detailsTobeShown"][field]) {
       delete preProduct[i]["detailsTobeShown"][field];
@@ -450,7 +450,7 @@ function GenerateQoutation({ visible, close }) {
     pevData["query_id"] = QueryId;
     pevData["quotation"] = "new";
     SetData(pevData);
-    console.log(Data);
+    // console.log(Data);
 
     const requestOptions = {
       method: 'POST',
@@ -501,7 +501,7 @@ function GenerateQoutation({ visible, close }) {
         .then(response => response.text())
         .then(text => {
           setLink(text);
-          console.log(text)
+          // console.log(text)
           dispatch(fetchQuotations(QueryId))
         });
 

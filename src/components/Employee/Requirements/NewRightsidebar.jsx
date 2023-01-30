@@ -81,13 +81,13 @@ function NewRightsidebar() {
 
 
   return (
-    <div className='mx-6 mt-10 flex flex-col text-[14px] text-black'>
+    <div className='mx-6 mt-10 pb-10 flex flex-col text-[14px] text-black md:pb-3'>
 
       <div>
 
         <span className='flex items-center'>
           <h1 className="headline">{req[0].client.client_name}</h1>
-          <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>New</p>
+          <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>{req[0].client_isNew}</p>
         </span>
 
         <div className='pt-2 text-gray-400'>

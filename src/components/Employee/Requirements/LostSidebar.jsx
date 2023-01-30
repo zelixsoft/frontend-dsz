@@ -1,7 +1,5 @@
 import { useState, useEffect } from 'react';
 import Followup from './Followup';
-import { usePopups } from '../../PopupsContext';
-import SidebarClientinfo from './SidebarClientinfo';
 import { useSelector, useDispatch } from 'react-redux';
 import { fechAssignQuery, fechLostQuery, fechCloseQuery, fetchQuotations } from '../../../Reducer/querySclice';
 import axios from 'axios';
@@ -30,34 +28,44 @@ function LostSidebar({ EmployeeId }) {
   const [QuotationFileName, setQuotationFileName] = useState("")
   const [QuotationData, setQuotationData] = useState({});
 
-  useEffect(() => {
-    var config = {
-      method: 'get',
-      url: `${process.env.REACT_APP_HOST}/api/followup/all/${LQID}`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      credentials: 'include',
-      withCredentials: true,
-    };
+  useEffect(
 
-    axios(config)
-      .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        const resData = response.data;
 
-        if (resData.error) {
-          // console.log(resData.error);
-        } else {
-          setfollowups(resData.data);
-          // console.log(resData)
-        }
-      })
-      .catch(function (error) {
-        // console.log(error);
-      });
+    () => {
+      var config = {
+        method: 'get',
+        url: `${process.env.REACT_APP_HOST}/api/followup/all/${LQID}`,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        withCredentials: true,
+      };
 
-  }, [LQID]);
+
+      if (LQID) {
+
+        axios(config)
+          .then(function (response) {
+            // console.log(JSON.stringify(response.data));
+            const resData = response.data;
+
+            if (resData.error) {
+              // console.log(resData.error);
+              setfollowups([])
+            } else {
+              setfollowups(resData.data);
+              // console.log(resData)
+            }
+          })
+          .catch(function (error) {
+            // console.log(error);
+            setfollowups([])
+          });
+
+      }
+
+    }, [LQID]);
 
   //fatching Quotaions
   useEffect(() => {
@@ -253,7 +261,7 @@ function LostSidebar({ EmployeeId }) {
   }
 
   return (
-    <div className='mx-6 mt-10 flex flex-col text-[14px] text-black'>
+    <div className='mx-6 mt-10 pb-40 flex flex-col text-[14px] text-black md:pb-3'>
 
       <div>
 
@@ -263,7 +271,7 @@ function LostSidebar({ EmployeeId }) {
             <div className='flex'>
               <h1 className="headline">{req[0].client.client_name}</h1>
               <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>
-                New
+                {req[0].client_isNew}
               </p>
             </div>
 

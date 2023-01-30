@@ -57,12 +57,12 @@ function EditClientDitals({ visible, close }) {
       "client_alternate_email": ClientDetails.client_alternate_email ? ClientDetails.client_alternate_email : "",
       "client_alternate_mobile": ClientDetails.client_alternate_mobile ? ClientDetails.client_alternate_mobile : ""
     })
-    console.log("Details is set")
+    // console.log("Details is set")
   }, [ClientDetails])
 
 
 
-  console.log(ClientData);
+  // console.log(ClientData);
 
   const HandelClientDetailInput = (e) => {
 
@@ -93,7 +93,7 @@ function EditClientDitals({ visible, close }) {
       data: data
     };
 
-    console.log(config.url);
+    // console.log(config.url);
 
     axios(config)
       .then(function (response) {
@@ -142,7 +142,7 @@ function EditClientDitals({ visible, close }) {
 
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
 
         var resdata = error.response.data;
 

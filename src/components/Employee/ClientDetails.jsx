@@ -37,6 +37,11 @@ function ClientDetails({ Username, MobileNo, Email, Company, Status, ClientId, I
             </div>
 
 
+
+
+
+            {/* for mobile */}
+
             <div className='md:hidden px-4 py-2 mx-4 my-2 flex flex-col bg-white shadow-md  rounded-md'>
 
 
@@ -59,8 +64,8 @@ function ClientDetails({ Username, MobileNo, Email, Company, Status, ClientId, I
                 <div className='flex justify-between mt-2'>
 
                     <div className='w-[70%]'>
-                        <p className='text-black overflow-x-hidden'>{Company}</p>
-                        <p className='text-gray-400'>{Email}</p>
+                        <p className='text-black whitespace-nowrap text-ellipsis max-w-[170px] overflow-hidden'>{Company}</p>
+                        <p className='text-gray-400 whitespace-nowrap text-ellipsis max-w-[170px] overflow-hidden'>{Email}</p>
                     </div>
                     <div className='flex items-center justify-end w-[30%]'>
                         <button className='float-right px-4 py-1 h-8 bg-primary text-base font-[400] text-white rounded-[4px] shadow-sm' id={ClientId} onClick={(e) => {

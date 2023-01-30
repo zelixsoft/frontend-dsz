@@ -55,10 +55,10 @@ function GenerateInvoice() {
   });
   const [Clients, setClients] = useState([]);
 
-  console.log(parseInt(mm) > 3);
+  // console.log(parseInt(mm) > 3);
 
   const FY = parseInt(mm) > 3 ? `${yyyy}-${yyyy + 1}` : `${yyyy - 1}-${yyyy}`;
-  console.log(FY);
+  // console.log(FY);
 
   const [metadata, setmetadata] = useState({
     date: date,
@@ -147,7 +147,7 @@ function GenerateInvoice() {
         email: ClientMeta.client_email,
       };
       SetData(preData);
-      console.log(ClientMeta);
+      // console.log(ClientMeta);
     }
   }, [ClientMeta, IsClientLoaded]);
 
@@ -240,7 +240,7 @@ function GenerateInvoice() {
     Premetadata[field] = val;
     setmetadata(Premetadata);
 
-    console.log(metadata);
+    // console.log(metadata);
   };
 
   // handel select seller detail
@@ -394,7 +394,7 @@ function GenerateInvoice() {
     var val = e.target.value;
 
     let preProduct = [...ProductList];
-    console.log(preProduct[i]["detailsTobeShown"][field]);
+    // console.log(preProduct[i]["detailsTobeShown"][field]);
 
     if (preProduct[i]["detailsTobeShown"][field]) {
       delete preProduct[i]["detailsTobeShown"][field];
@@ -403,7 +403,7 @@ function GenerateInvoice() {
     }
     SetProduct(preProduct);
 
-    console.log(ProductList);
+    // console.log(ProductList);
   };
 
   const handelChangeFieldValue = (i, e) => {
@@ -417,7 +417,7 @@ function GenerateInvoice() {
     SetProduct(preProduct);
     // console.log(e.target.value)
 
-    console.log(ProductList[i]["detailsTobeShown"]);
+    // console.log(ProductList[i]["detailsTobeShown"]);
   };
 
   // Input Handel for additional things ex width, height, rate, unit

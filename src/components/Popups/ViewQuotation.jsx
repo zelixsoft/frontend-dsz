@@ -12,6 +12,7 @@ function ViewQuotation({ visible, file, close, data }) {
 
     useEffect(() => {
         setURL(`https://api.darshansafety.in/generate/docs/quotations/${file}.pdf`);
+        setError("");
     }, [file])
 
 
@@ -48,7 +49,7 @@ function ViewQuotation({ visible, file, close, data }) {
 
                 setError("")
 
-                await fetch('http://localhost:8000/download', requestOptions)
+                await fetch('https://api.darshansafety.in/generate/download', requestOptions)
                     .then(response => response.text())
                     .then(text => { setURL(text); });
 

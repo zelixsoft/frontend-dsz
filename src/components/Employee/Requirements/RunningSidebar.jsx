@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Followup from './Followup'
 import { usePopups } from '../../PopupsContext'
-import SidebarClientinfo from './SidebarClientinfo';
 import { useSelector } from 'react-redux';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -19,8 +18,8 @@ function RunningSidebar({ EmployeeId }) {
 
   const dispatch = useDispatch()
 
-  const { chat } = usePopups();
-  const [ChatPopup, SetChatPopup] = chat;
+  // const { chat } = usePopups();
+  // const [ChatPopup, SetChatPopup] = chat;
 
   const { qoutation } = usePopups();
   const [NewQoutation, SetNewQoutation] = qoutation;
@@ -62,22 +61,26 @@ function RunningSidebar({ EmployeeId }) {
       credentials: 'include', withCredentials: true,
     };
 
-    axios(config)
-      .then(function (response) {
-        // console.log(JSON.stringify(response.data));
-        const resData = response.data;
+    if (AQID) {
 
-        if (resData.error) {
-          // console.log(resData.error);
+      axios(config)
+        .then(function (response) {
+          // console.log(JSON.stringify(response.data));
+          const resData = response.data;
+
+          if (resData.error) {
+            // console.log(resData.error);
+            setfollowups([]);
+          } else {
+            setfollowups(resData.data);
+          }
+        })
+        .catch(function (error) {
           setfollowups([]);
-        } else {
-          setfollowups(resData.data);
-        }
-      })
-      .catch(function (error) {
-        setfollowups([]);
-        // console.log(error);
-      });
+          // console.log(error);
+        });
+
+    }
 
   }, [AQID, Isfollowup]);
 
@@ -151,7 +154,7 @@ function RunningSidebar({ EmployeeId }) {
         }
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
 
         Store.addNotification({
           title: "Somting Went Wrong...",
@@ -232,7 +235,7 @@ function RunningSidebar({ EmployeeId }) {
         }
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
         Store.addNotification({
           title: "Somting Went Wrong...",
           message: "Server Side Error",
@@ -342,7 +345,7 @@ function RunningSidebar({ EmployeeId }) {
   }
 
 
-  console.log(Quotation);
+  // console.log(Quotation);
 
   if (!AQID || !Querys) {
     return <div className='flex justify-center items-center mt-20 text-blue-500'>Loading Requirement Details...</div>
@@ -356,7 +359,7 @@ function RunningSidebar({ EmployeeId }) {
   dispatch(setClient(req[0].client));
 
   return (
-    <div className='mx-6 mt-10 flex flex-col text-[14px] text-black'>
+    <div className='mx-6 pb-40 mt-10 flex flex-col text-[14px] text-black md:pb-3'>
 
       <div>
 
@@ -366,7 +369,7 @@ function RunningSidebar({ EmployeeId }) {
             <div className='flex'>
               <h1 className="headline">{req[0].client.client_name}</h1>
               <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>
-                New
+                {req[0].client_isNew}
               </p>
             </div>
 
