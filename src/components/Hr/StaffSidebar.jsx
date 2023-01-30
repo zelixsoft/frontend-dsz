@@ -4,17 +4,23 @@ import {
 } from '@heroicons/react/24/outline'
 import { usePopups } from '../PopupsContext';
 import EditEmployeeDetails from '../Popups/EditEmployeeDetails';
+import { Store } from 'react-notifications-component';
+import 'react-notifications-component/dist/theme.css';
 import axios from 'axios';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { fechEmployees } from '../../Reducer/employeeSlice';
 
 
 function StaffSidebar() {
 
-
+  const dispatch = useDispatch();
   const { employee } = usePopups();
   const [EditStaffDetails, SetEditStaffDetails] = employee;
 
-
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
 
   const EmployeeId = useSelector((state) => state.employee.employeeId)
   const Employees = useSelector((state) => state.employee.employees);
@@ -38,7 +44,7 @@ function StaffSidebar() {
         console.log(JSON.stringify(response.data));
         var resData = response.data;
         if (resData.error) {
-          console.log(resData.errorMessage);
+          // console.log(resData.errorMessage);
           setBankDetails({});
         } else {
           setBankDetails(resData.data);
@@ -50,6 +56,95 @@ function StaffSidebar() {
       });
 
   }, [EmployeeId])
+
+
+  const HandelDeleteEmployee = () => {
+
+    var data = JSON.stringify({
+      "data": {
+        "employee_relieve_date": yyyy + "-" + mm + "-" + dd,
+      }
+    });
+
+    var config = {
+      method: 'delete',
+      url: `${process.env.REACT_APP_HOST}/api/employee/${EmployeeId}`,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
+
+    axios(config)
+      .then(function (response) {
+        var resdata = response.data;
+
+        if (resdata.error) {
+
+          Store.addNotification({
+            title: "Error While Removing Employee",
+            message: resdata.errorMessage,
+            type: "warning",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
+
+        } else {
+
+          Store.addNotification({
+            title: "Employee Removed Successfully",
+            message: "Success",
+            type: "success",
+            insert: "top",
+            container: "top-right",
+            animationIn: ["animate__animated", "animate__fadeIn"],
+            animationOut: ["animate__animated", "animate__fadeOut"],
+            dismiss: {
+              duration: 5000,
+              onScreen: true
+            }
+          });
+
+          dispatch(fechEmployees());
+
+
+        }
+      })
+      .catch(function (error) {
+        // console.log(error);
+        var result = error.response.data;
+
+        // console.log(result);
+
+        if (result) {
+          if (result.error) {
+
+            Store.addNotification({
+              title: result.errorType ? result.errorType : "Error!",
+              message: result.errorMessage ? result.errorMessage : "Error While Processing Request!",
+              type: "warning",
+              insert: "top",
+              container: "top-right",
+              animationIn: ["animate__animated", "animate__fadeIn"],
+              animationOut: ["animate__animated", "animate__fadeOut"],
+              dismiss: {
+                duration: 5000,
+                onScreen: true
+              }
+            });
+          }
+
+
+        }
+      });
+
+  }
 
 
   if (!EmployeeId || !Employees) {
@@ -70,13 +165,20 @@ function StaffSidebar() {
 
 
   return (
-    <div className='mx-6 mt-10 felx flex-col text-[14px] text-black'>
+    <div className='mx-6 mt-10 pb-40 flex flex-col text-[14px] text-black md:pb-3'>
 
       <div>
 
         <span className='flex items-center justify-between'>
           <h1 className="headline">{Data.employee_name}</h1>
-          <p className='w-5 mr-3'><EllipsisVerticalIcon /> </p>
+          <div className='group relative' >
+            <p className='w-5 mr-3 hover:cursor-pointer'><EllipsisVerticalIcon /> </p>
+            <div className='hidden group-hover:block absolute top-2 right-3 bg-white shadow-md rounded-sm w-[150px]'>
+              <div className='py-1'>
+                <li className='hover:bg-blue-400 hover:text-white hover:cursor-pointer list-none px-2' onClick={() => HandelDeleteEmployee()}>Delete Employee</li>
+              </div>
+            </div>
+          </div>
         </span>
 
         <div className='pt-2 text-gray-400'>

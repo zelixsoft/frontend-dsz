@@ -21,7 +21,7 @@ function ActiveLeaveReq() {
 
 
   const ActiveLeaves = useSelector((state) => state.leave.ActiveLeaves);
-  console.log(ActiveLeaves);
+  // console.log(ActiveLeaves);
 
 
   const HandelSendToArchive = (leave_req_id) => {

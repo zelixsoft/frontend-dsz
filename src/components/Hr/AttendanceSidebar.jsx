@@ -38,7 +38,7 @@ function AttendanceSidebar() {
   const Data = Employee[0];
 
   // setAttendanceData(Data.attendance_array);
-  console.log(AttendanceData)
+  // console.log(AttendanceData)
 
   var date = new Date(`${Interval.yyyy}-${Interval.mm}-1`);
 
@@ -116,10 +116,8 @@ function AttendanceSidebar() {
 
 
 
-
-
   return (
-    <div className='mx-6 mt-10 flex flex-col text-[14px] text-black'>
+    <div className='mx-6 mt-10 pb-40 flex flex-col text-[14px] text-black md:pb-3'>
 
       <div>
 

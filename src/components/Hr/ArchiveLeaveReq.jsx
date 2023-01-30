@@ -21,7 +21,7 @@ function ArchiveLeaveReq() {
 
 
   const ArchiveLeaves = useSelector((state) => state.leave.ArchiveLeaves);
-  console.log(ArchiveLeaves);
+  // console.log(ArchiveLeaves);
 
 
   const HandelDeleteReq = (leave_req_id) => {

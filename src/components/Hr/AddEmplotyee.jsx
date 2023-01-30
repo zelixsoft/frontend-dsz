@@ -154,6 +154,7 @@ function AddEmplotyee() {
 
           setBankDetails(true);
 
+
         }
 
 
@@ -296,10 +297,10 @@ function AddEmplotyee() {
 
       })
       .catch(function (error) {
-        console.log(error);
+        // console.log(error);
 
-        console.log(error.response.data)
-        console.log(error.response.status)
+        // console.log(error.response.data)
+        // console.log(error.response.status)
 
         Store.addNotification({
           title: "Somting Went Wrong...",

@@ -67,6 +67,14 @@ function HrSearchbar({ HrInput, HrSearchHandler }) {
 
             </div>
 
+
+
+
+
+
+            {/* for mobile */}
+
+
             <div className='md:hidden flex flex-col mx-5 mt-7'>
 
 
@@ -80,7 +88,7 @@ function HrSearchbar({ HrInput, HrSearchHandler }) {
 
                 <div className='flex justify-end mt-2'>
 
-                    <input type="text" className={HrInput ? 'hidden' : 'display grow ml-4 bg-bg outline-none pl-3 border-b-2 border-primary'} onChange={(e) => { HandelInputChange(e) }} />
+                    <input type="text" className={HrInput ? 'hidden' : 'display ml-4 bg-bg outline-none pl-3 border-b-2 border-primary'} onChange={(e) => { HandelInputChange(e) }} />
 
                     <div>
                         <span className='w-9 flex justify-center items-center ml-2 rounded-md bg-blue-300 hover:cursor-pointer' onClick={() => { InputVal.length > 0 ? dispatch(setHrInputFilter(InputVal)) : HandelSearchIconClick(); }} >
