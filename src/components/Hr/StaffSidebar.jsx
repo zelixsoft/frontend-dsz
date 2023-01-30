@@ -165,7 +165,7 @@ function StaffSidebar() {
 
 
   return (
-    <div className='mx-6 mt-10 pb-40 flex flex-col text-[14px] text-black md:pb-3'>
+    <div className='mx-6 mt-10 pb-40 flex flex-col text-[14px] text-black md:pb-0'>
 
       <div>
 

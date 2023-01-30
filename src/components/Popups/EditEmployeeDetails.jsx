@@ -292,11 +292,10 @@ function EditEmployeeDetails({ visible, close, Employee, Employee_Bank_info }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-10 backdrop-blur-sm flex items-center justify-center">
 
-      <div className='w-[1000px] h-[85%] overflow-y-scroll bg-bg rounded-md'>
-
+      <div className='w-[98%] md:w-[1000px] h-[85%] overflow-y-scroll bg-bg rounded-md'>
 
         <div className='sticky top-0 backdrop-blur-sm bg-bg bg-opacity-20'>
-          <div className='flex justify-between px-20 pt-5 pb-2'>
+          <div className='flex justify-between px-5 md:px-20 pt-5 pb-2'>
             <h1 className='heading'>Edit Employee Details</h1>
             <XCircleIcon onClick={() => {
               dispatch(fechEmployees());
@@ -329,43 +328,32 @@ function EditEmployeeDetails({ visible, close, Employee, Employee_Bank_info }) {
             <input className='NewEmployeeinput' type="email" name="employee_email" value={EmployeeDetails.employee_email} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
           </div>
 
-          <div className='flex justify-between pt-3 pb-2'>
+          <div className='flex flex-col md:flex-row justify-between pt-3 pb-2'>
 
             <div className='flex flex-col'>
               <label className='label'>Designation</label>
               <input className='NewEmployeeinput' type="text" name="employee_designation" value={EmployeeDetails.employee_designation} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
-              {/* <select id="designation" name="employee_designation" className='NewEmployeeinput  w-[300px]'>
-                                    <option value="Managing Director">Managing Director</option>
-                                    <option value="Sales Manager">Sales Manager</option>
-                                    <option value="Sales Executive">Sales Executive</option>
-                                    <option value="Account Executive">Account Executive</option>
-                                    <option value="Sales Field">Sales Field</option>
-                                    <option value="Hr">Hr</option>
-                                    <option value="Hr-Admin">Hr-Admin</option>
-                                    <option value="Back office ">Back office </option>
-                                    <option value="Sales/Field Executive">Sales/Field Executive</option>
-                                </select> */}
             </div>
 
 
             <div className='flex flex-col'>
               <label className='label'>Date of Birth</label>
-              <input className='NewEmployeeinput w-[300px]' type="date" name="employee_dob" value={EmployeeDetails.employee_dob} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
+              <input className='NewEmployeeinput md:w-[300px]' type="date" name="employee_dob" value={EmployeeDetails.employee_dob} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
             </div>
 
           </div>
 
 
 
-          <div className='flex justify-between py-3'>
+          <div className='flex flex-col md:flex-row justify-between py-3'>
 
             <div className='flex flex-col'>
               <label className='label'>Joining Date</label>
-              <input className='NewEmployeeinput w-[300px]' type="date" name="employee_doj" value={EmployeeDetails.employee_doj} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
+              <input className='NewEmployeeinput md:w-[300px]' type="date" name="employee_doj" value={EmployeeDetails.employee_doj} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
             </div>
             <div className='flex flex-col'>
               <label className='label'>Relieve Date</label>
-              <input className='NewEmployeeinput w-[300px]' type="date" name="employee_relieve_date" value={EmployeeDetails.employee_relieve_date} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
+              <input className='NewEmployeeinput md:w-[300px]' type="date" name="employee_relieve_date" value={EmployeeDetails.employee_relieve_date} onChange={(e) => { HandelEmployeeDetailsInput(e) }} />
             </div>
 
           </div>
