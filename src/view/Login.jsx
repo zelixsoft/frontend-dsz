@@ -68,7 +68,7 @@ function Login() {
         body: data
       })
         .then(res => {
-          console.log(res.headers)
+          // console.log(res.headers)
           return res;
         })
         .then(res => res.json())
@@ -128,10 +128,10 @@ function Login() {
 
     setloading(false);
 
-    if (window.matchMedia("(max-width: 600px)")) {
-      // console.log("hiii");
-      document.documentElement.requestFullscreen();
-    }
+    // if (window.matchMedia("(max-width: 600px)")) {
+    //   // console.log("hiii");
+    //   document.documentElement.requestFullscreen();
+    // }
   }
 
   return (

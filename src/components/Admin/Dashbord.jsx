@@ -81,7 +81,7 @@ function Dashbord() {
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        // console.log(JSON.stringify(response.data));
 
         var resdata = response.data;
 
@@ -103,7 +103,7 @@ function Dashbord() {
 
         } else {
           setData(resdata.data);
-          console.log(resdata.data);
+          // console.log(resdata.data);
         }
       })
       .catch(function (error) {

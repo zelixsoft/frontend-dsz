@@ -29,7 +29,7 @@ function AdminSidebar() {
             navigate('/hr');
             setPanel("Hr Department");
         }
-        console.log(val);
+        // console.log(val);
     }
 
     return (
