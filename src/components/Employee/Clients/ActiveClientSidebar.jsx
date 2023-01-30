@@ -145,7 +145,7 @@ function ActiveClientSidebar() {
         <span className='flex items-center'>
           <div className='flex'>
             <h1 className="headline">{ClientData[0].client_name}</h1>
-            <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>New</p>
+            <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>{ClientData[0].client_isNew}</p>
           </div>
 
           <div className='group relative' >
@@ -153,6 +153,7 @@ function ActiveClientSidebar() {
             <div className='hidden group-hover:block absolute top-2 right-3 bg-white shadow-md rounded-sm w-[150px]'>
               <div className='py-1'>
                 <li className='hover:bg-blue-400 hover:text-white hover:cursor-pointer list-none px-2' onClick={() => SetEditClientDetails(true)}>Edit Client</li>
+                <li className='hover:bg-blue-400 hover:text-white hover:cursor-pointer list-none px-2' onClick={() => HandelBlock()}>Block Client</li>
               </div>
             </div>
           </div>
@@ -234,7 +235,7 @@ function ActiveClientSidebar() {
       </div>
 
 
-      <div className='mt-6 mb-8 text-[14px]'>
+      <div className='mt-6 mb-20 text-[14px]'>
         <div className='flex items-center'>
           {/* <button className='px-4 py-2 bg-primary text-white font-medium rounded-md shadow-md' >Create invoice</button> */}
           <button className='ml-2 px-4 py-2 bg-rose-500 text-white font-medium rounded-md shadow-md' onClick={() => { HandelBlock() }}>Block Client</button>

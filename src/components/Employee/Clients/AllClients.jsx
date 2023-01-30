@@ -92,7 +92,7 @@ function AllClients({ SearchInput, SortType, Status }) {
                 All_Clients && All_Clients.map((c, index) => {
 
                     return (
-                        < ClientDetails Username={c.client_name} Email={c.client_email} MobileNo={c.client_mobile} Company={c.client_industry} Status={"New"} IsActive={Status} key={index} ClientId={c.client_id} />
+                        < ClientDetails Username={c.client_name} Email={c.client_email} MobileNo={c.client_mobile} Company={c.client_industry} Status={c.client_isNew} IsActive={Status} key={index} ClientId={c.client_id} />
                     )
 
 

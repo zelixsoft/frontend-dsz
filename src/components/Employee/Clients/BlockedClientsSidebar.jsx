@@ -117,7 +117,7 @@ function BlockedClientsSidebar() {
       <div>
         <span className='flex items-center'>
           <h1 className="headline">{ClientData[0].client_name}</h1>
-          <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>New</p>
+          <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>{ClientData[0].client_isNew}</p>
         </span>
 
         <div className='pt-2 text-[14px] text-gray-400'>
@@ -146,7 +146,7 @@ function BlockedClientsSidebar() {
       </div>
 
 
-      <div className='mt-6 mb-8 text-[14px]'>
+      <div className='mt-6 mb-20 text-[14px]'>
         <div className='flex items-center'>
           {/* <button className='px-4 py-2 bg-primary text-white font-medium rounded-md shadow-md' >Create Quotation</button> */}
           <button className='ml-2 px-4 py-2 bg-rose-500 text-white font-medium rounded-md shadow-md' onClick={() => { HandelUnblock() }}>Unblock</button>
