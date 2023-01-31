@@ -83,8 +83,9 @@ function CloseSidebar({ EmployeeId }) {
       method: 'patch',
       url: `${process.env.REACT_APP_HOST}/api/query/status/${CQID}`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
+      credentials: 'include', withCredentials: true,
       data: data
     };
 
@@ -170,8 +171,9 @@ function CloseSidebar({ EmployeeId }) {
       method: 'patch',
       url: `${process.env.REACT_APP_HOST}/api/query/status/${CQID}`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
+      credentials: 'include', withCredentials: true,
       data: data
     };
 
