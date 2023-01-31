@@ -70,8 +70,9 @@ function StaffSidebar() {
       method: 'delete',
       url: `${process.env.REACT_APP_HOST}/api/employee/${EmployeeId}`,
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
+      credentials: 'include', withCredentials: true,
       data: data
     };
 
