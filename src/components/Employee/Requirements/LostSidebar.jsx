@@ -271,7 +271,7 @@ function LostSidebar({ EmployeeId }) {
             <div className='flex'>
               <h1 className="headline">{req[0].client.client_name}</h1>
               <p className='mx-6 bg-gray-400  text-white px-2 rounded-sm font-medium'>
-                {req[0].client_isNew}
+                {req[0].client.client_isNew}
               </p>
             </div>
 

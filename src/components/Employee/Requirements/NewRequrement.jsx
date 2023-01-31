@@ -16,8 +16,8 @@ function NewRequrement({ SearchInput, SortType, EmployeeId }) {
     }, [])
 
     setInterval(() => {
-        dispatch(fechUnAssignQuery());
-    }, 60000);
+        dispatch(fechUnAssignQuery(true));
+    }, 5 * 60 * 1000);
 
 
 

@@ -52,7 +52,7 @@ export const {
 } = querySlice.actions;
 export default querySlice.reducer;
 
-export function fechUnAssignQuery() {
+export function fechUnAssignQuery(interval = false) {
 	return async function fechUnAssignQueryThunk(dispatch, getState) {
 		try {
 			var config = {
@@ -75,9 +75,13 @@ export function fechUnAssignQuery() {
 					} else {
 						dispatch(setUnassignQuery(resData.data));
 						if (resData.data[0]) {
-							dispatch(setUAQID(resData.data[0].query_id));
+							if (!interval) {
+								dispatch(setUAQID(resData.data[0].query_id));
+							}
 						} else {
-							dispatch(setUAQID(undefined));
+							if (!interval) {
+								dispatch(setUAQID(undefined));
+							}
 						}
 					}
 				})
