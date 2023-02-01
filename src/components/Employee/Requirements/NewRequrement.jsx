@@ -8,14 +8,21 @@ import { useSelector } from 'react-redux';
 function NewRequrement({ SearchInput, SortType, EmployeeId }) {
 
     const dispatch = useDispatch();
+    const ref = useRef(null);
 
     useEffect(() => {
 
         dispatch(fechUnAssignQuery());
 
+        return () => {
+            if (ref.current) {
+                clearInterval(ref.current);
+            }
+        }
+
     }, [])
 
-    setInterval(() => {
+    ref.current = setInterval(() => {
         dispatch(fechUnAssignQuery(true));
     }, 5 * 60 * 1000);
 
